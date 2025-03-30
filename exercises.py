@@ -136,14 +136,23 @@ print('Exercise 5:', sum_to(6))
 print('Exercise 5:', sum_to(10))
 # Exercise 6: Find the Largest Number
 #
-# Write a function named `largest` that takes three integers as arguments and returns the largest of them.
+# Write a function named `largest` that takes three integers as arguments 
+# and returns the largest of them.
 #
 # Examples:
 # largest(1, 2, 3) should return 3.
 # largest(10, 4, 2) should return 10.
 #
 # Define your function and test it with different inputs.
-
+def largest (a, b, c):
+    """
+    Find the largest of three integers.
+    :param a: First integer
+    :param b: Second integer
+    :param c: Third integer
+    :return: The largest integer
+    """
+    return max(a, b, c)
 
 
 print('Exercise 6:', largest(1, 2, 3))
@@ -151,21 +160,31 @@ print('Exercise 6:', largest(10, 4, 2))
 
 # Exercise 7: Calculate a Tip
 #
-# Create a function called `calculate_tip`. It should take the bill amount and the tip percentage (as a whole number).
+# Create a function called `calculate_tip`. It should 
+# take the bill amount and the tip percentage (as a whole number).
 # The function should return the amount of the tip.
 #
 # Examples:
 # calculate_tip(50, 20) should return 10.
 #
 # Write your function and test its output below.
-
+def calculate_tip(bill_amount, tip_percentage):
+    """
+    Calculate the tip based on the bill amount and tip percentage.
+    :param
+    bill_amount: The total bill amount
+    :param tip_percentage: The tip percentage (as a whole number)
+    :return: The calculated tip
+    """
+    return (bill_amount * tip_percentage) / 100
 
 
 print('Exercise 7:', calculate_tip(50, 20))
 
 # Exercise 8: Calculate Product of Numbers
 #
-# Write a function named `product` that takes an arbitrary number of numbers, multiplies them, and returns the product.
+# Write a function named `product` that takes
+# an arbitrary number of numbers, multiplies them, and returns the product.
 # Review your notes on *args for handling an arbitrary number of arguments.
 #
 # Examples:
@@ -173,9 +192,17 @@ print('Exercise 7:', calculate_tip(50, 20))
 # product(2, 5, 5) should return 50.
 #
 # Define the function and call it with different sets of numbers to test.
-
-
-
+def product (*args):
+    """
+    :function - Calculate the product of an arbitrary number of numbers.
+    :param args: The numbers to multiply
+    :return: The product of the numbers
+    """
+    result = 1
+    for number in args:
+        result *= number
+    return result
+print('Exercise 8:', product(-1, 4))
 print('Exercise 8:', product(2, 5, 5))
 
 # Exercise 9: Basic Calculator
@@ -192,8 +219,27 @@ print('Exercise 8:', product(2, 5, 5))
 # basic_calculator(10, 5, 'divide') should return 2.
 #
 # Define the function and then call it below.
-
-
+def basic_calculator(num1, num2, operation):
+    """
+    Perform basic arithmetic operations based on the provided operation.
+    :param num1: The first number
+    :param num2: The second number
+    :param operation: The operation to perform ('add', 'subtract', 'multiply', 'divide')
+    :return: The result of the operation
+    """
+    if operation == 'add':
+        return num1 + num2
+    elif operation == 'subtract':
+        return num1 - num2
+    elif operation == 'multiply':
+        return num1 * num2
+    elif operation == 'divide':
+        if num2 != 0:
+            return num1 / num2
+        else:
+            raise ValueError("Cannot divide by zero.")
+    else:
+        raise ValueError("Invalid operation. Use 'add', 'subtract', 'multiply', or 'divide'.")
 
 print('Exercise 9 Result:', basic_calculator(10, 5, "subtract"))
 print('Exercise 9 Result:', basic_calculator(10, 5, "add"))
